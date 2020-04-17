@@ -2,8 +2,15 @@ import React, { useContext, useState } from 'react'
 import { DrinksContext } from '../../context/DrinksContext'
 
 const Form = ()=> {
-	const [ search, saveSearch ] = useState({nameDrink:''})
-	const { searchDrink, saveLoad }  = useContext(DrinksContext)
+	const [ search, saveSearch ] = useState({nameDrink:''});
+	const { searchDrink, saveLoad, saveDrinks }  = useContext(DrinksContext);
+	const [ characterEmpty, saveCharacter ] = useState(false);
+	const getEmtyCaractrer = ()=>{
+		saveCharacter(true)
+	}
+	const getEmtyCaractrerF = ()=>{
+		saveCharacter(false)
+	}
 	const getNameDrink = e=>{
 		saveSearch({
 			...search,
@@ -14,8 +21,14 @@ const Form = ()=> {
 		<form className={`col-12`}
 			onSubmit={ e=>{
 					e.preventDefault();
-					searchDrink(search);
-					saveLoad(true);
+					getEmtyCaractrerF();
+					if((search.nameDrink.length===1)){
+						searchDrink(search);
+						saveLoad(true);
+					}else{
+						getEmtyCaractrer();
+						saveDrinks([]);
+					}
 				}}>
 			<fieldset className={`text-center`}>
 				<legend>Busca tu trago</legend>
@@ -27,6 +40,11 @@ const Form = ()=> {
 				<div className={`col-md-2`}>
 					<button className={`btn btn-danger btn-block`}>Buscar</button>
 				</div>
+				{characterEmpty&&<div className={`col-md-12`}>
+					<div className="d-flex justify-content-center m-5">
+						<span>Debe escribir un caracter para buscar tu trago</span>
+					</div>
+				</div>}
 			</div>
 		</form>
 	)
