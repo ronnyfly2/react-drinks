@@ -1,0 +1,50 @@
+.my_7{
+	margin-bottom:2rem;
+}
+.link_modal{
+	cursor: pointer;
+}
+.link_modal:hover{
+	color:red;
+}
+.override{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 2;
+	background: rgba(0,0,0,.5);
+}
+.container{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	width: 80vw;
+}
+.card{
+	max-height: 90vh;
+	overflow: auto;
+}
+.svg{
+	cursor: pointer;
+	background: white;
+	height: 20px;
+	width: 20px !important;
+	padding: 2px;
+	position: absolute;
+	right: -10px;
+	top: -10px;
+	border-radius: 50%;
+	box-shadow: 0px 0px 6px rgba(0,0,0,.5);
+	z-index: 3;
+}
+.card_text{
+	overflow: hidden;
+	overflow-y: scroll;
+	height: 160px;
+	border: 1px solid #ccc;
+	padding: 10px;
+}
