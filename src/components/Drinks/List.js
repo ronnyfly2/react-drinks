@@ -20,11 +20,13 @@ const List = ()=>{
 				)
 			})}
 			{drinks && drinks.total_pages && drinks.total_pages>1&&(
-			<nav aria-label="Page navigation">
-				<ul className="pagination">
-					{createDivPagination()}
-				</ul>
-			</nav>)}
+				<div className={`col-12 m-2`}>
+					<nav aria-label="Page navigation">
+						<ul className="pagination justify-content-center">
+							{createDivPagination()}
+						</ul>
+					</nav>
+				</div>)}
 		</div>: load? (
 			<div className="d-flex justify-content-center m-5">
 				<div className="spinner-grow text-danger" role="status">
