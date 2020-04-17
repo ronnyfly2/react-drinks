@@ -7,20 +7,19 @@ export const DrinkDetailContext = createContext();
 const DrinkdetailProvider = (props)=>{
 	const [ drinkDetail, saveDrinkDetail ] = useState({});
 	const { id } = useParams()
-	//const [ idDrink, getIdDrink ] = useState({...props});
-	//const [ loadDetail, saveLoadDetail ] = useState(false);
-	//const { id } = idDrink;
-	console.log('dddpov', drinkDetail);
 	useEffect(() => {
-			//getLoad();
-			const getDrinks = async()=>{
+			const getDrinks = ()=>{
 				const url = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`;
-				const res = await axios.get(url);
-				if(res.data && res.data.drinks){
-					saveDrinkDetail(res.data.drinks[0]);
-				}else{
-					saveDrinkDetail({});
-				}
+				axios.get(url).then((res)=>{
+					if(res.data && res.data.drinks){
+						saveDrinkDetail(res.data.drinks[0]);
+					}else{
+						saveDrinkDetail(null);
+					}
+				}).catch((error)=>{
+					console.log('error data',error);
+					saveDrinkDetail(null);
+				})
 			}
 			getDrinks()
 	}, [id])

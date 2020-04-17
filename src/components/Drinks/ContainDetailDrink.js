@@ -10,8 +10,7 @@ const ContainDetailDrink = ()=>{
 	const { drinkDetail } = useContext(DrinkDetailContext);
 	const { ingredient, ingredientEvent } = useContext(IngredientContext);
 	const [ openBool, openEvent ] = useState(false);
-	const [ imgIngredient, imgEvent ] = useState({});;
-	console.log('dddeee', drinkDetail)
+	const [ imgIngredient, imgEvent ] = useState({});
 	const openModal = (ingreName)=>{
 		openEvent(true);
 		imgEvent(ingreName);
@@ -76,7 +75,13 @@ const ContainDetailDrink = ()=>{
 					</div>
 				</div>}
 			</div>):<div className="col-12">
-				<span>No se encontró el trago</span>
+				<span>{drinkDetail ===null ? 'No se encontró el trago':(
+					<div className="d-flex justify-content-center m-5">
+						<div className="spinner-grow text-danger" role="status">
+							<span className="sr-only">Loading...</span>
+						</div>
+					</div>
+				)}</span>
 			</div>
 	)
 }
