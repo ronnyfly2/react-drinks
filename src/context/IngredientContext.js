@@ -6,11 +6,7 @@ export const IngredientContext = createContext();
 const IngredientProvider = (props)=>{
 	const [ ingredient, saveIngredient ] = useState({});
 	const [ imgIngredient, ingredientEvent ] = useState({...props});
-	//const [ loadDetail, saveLoadDetail ] = useState(false);
-	//const { id } = idDrink;
-	console.log('manou', typeof imgIngredient);
 	useEffect(() => {
-			//getLoad();
 		if(typeof imgIngredient == 'string'){
 			const getIngredient = async()=>{
 				saveIngredient(null)

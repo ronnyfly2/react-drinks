@@ -35,7 +35,8 @@ const Form = ()=> {
 			</fieldset>
 			<div className={`row`}>
 				<div className={`col-md-10`}>
-					<input className={`form-control`} type="text" placeholder="Escribe nombre" name="nameDrink" onChange={getNameDrink} />
+					<label htmlFor="nameDrink" className="label_hide">Buscar</label>
+					<input className={`form-control`} type="text" placeholder="Escribe un caracter" id="nameDrink" name="nameDrink" onChange={getNameDrink} />
 				</div>
 				<div className={`col-md-2`}>
 					<button className={`btn btn-danger btn-block`}>Buscar</button>

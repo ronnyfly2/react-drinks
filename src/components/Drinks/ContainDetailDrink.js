@@ -4,7 +4,6 @@ import { IngredientContext } from '../../context/IngredientContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCocktail, faTachometerAlt, faGlassWhiskey, faLink, faFingerprint, faTimes } from '@fortawesome/free-solid-svg-icons';
 import styles from './drinks.module.css'
-//import DetailCardDrink from '../../components/Drinks/DetailCardDrink';
 
 const ContainDetailDrink = ()=>{
 	const { drinkDetail } = useContext(DrinkDetailContext);
@@ -20,7 +19,6 @@ const ContainDetailDrink = ()=>{
 		openEvent(false);
 	}
 	return (
-		//<DetailCardDrink />
 		drinkDetail && drinkDetail.idDrink?(
 			<div className="col-12">
 				<div className="card mb-3">
@@ -35,7 +33,6 @@ const ContainDetailDrink = ()=>{
 								<p><FontAwesomeIcon icon={faCocktail}></FontAwesomeIcon> { drinkDetail.strCategory }</p>
 								<p><FontAwesomeIcon icon={faTachometerAlt}></FontAwesomeIcon> { drinkDetail.strAlcoholic }</p>
 								<p><FontAwesomeIcon icon={faGlassWhiskey}></FontAwesomeIcon> { drinkDetail.strGlass }</p>
-								{/*<p><FontAwesomeIcon icon={faRuler}></FontAwesomeIcon> { drinkDetail.strMeasure1 }</p>*/}
 								{ drinkDetail.strIngredient1 && <p className={`${styles.link_modal}`} onClick={()=>openModal(drinkDetail.strIngredient1)}><FontAwesomeIcon icon={faLink}></FontAwesomeIcon> { drinkDetail.strIngredient1 } / { drinkDetail.strMeasure1 }</p>}
 								{ drinkDetail.strIngredient2 && <p className={`${styles.link_modal}`} onClick={()=>openModal(drinkDetail.strIngredient2)}><FontAwesomeIcon icon={faLink}></FontAwesomeIcon> { drinkDetail.strIngredient2 } / { drinkDetail.strMeasure2 }</p>}
 								{ drinkDetail.strIngredient3 && <p className={`${styles.link_modal}`} onClick={()=>openModal(drinkDetail.strIngredient3)}><FontAwesomeIcon icon={faLink}></FontAwesomeIcon> { drinkDetail.strIngredient3 } / { drinkDetail.strMeasure3 }</p>}

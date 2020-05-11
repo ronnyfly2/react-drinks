@@ -19,3 +19,6 @@ img{
 ul{
   list-style: none;
 }
+.label_hide{
+	display:none;
+}
